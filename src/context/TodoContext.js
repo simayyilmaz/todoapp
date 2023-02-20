@@ -1,9 +1,10 @@
 import React, {createContext, useContext, useReducer} from "react";
 
-export const ToDoLayer = ({initialState, reducer, children }) => (
-    <ToDoLayerContext.Provider value={useReducer(reducer, initialState)}>
+export const TodoLayerContext = createContext();
+export const TodoLayer = ({initialState, reducer, children }) => (
+    <TodoLayerContext.Provider value={useReducer(reducer, initialState)}>
         {children}
-    </ToDoLayerContext.Provider>
+    </TodoLayerContext.Provider>
 );
 
-export const useTodoLayerValue = () => useContext (ToDoLayerContext);
+export const useTodoLayerValue = () => useContext (TodoLayerContext);
